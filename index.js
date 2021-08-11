@@ -51,6 +51,11 @@ app.get('/pagar', async (req, res)=>{
    
 });
 
-app.listen(3000, (req, res)=>{
+app.post('/not', (req, res)=>{
+    console.log(req.query);
+    res.send("OK"); // vc precisa enviar uma reposta para o mercado pago.
+})
+
+app.listen(80, (req, res)=>{
     console.log('servidor rodando.');
 });
