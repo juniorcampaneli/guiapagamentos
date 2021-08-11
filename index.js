@@ -68,6 +68,11 @@ app.post('/not', (req, res)=>{
             var pagamento = data.body.results[0];
             if (pagamento != undefined){
                 console.log(pagamento);
+                console.log(pagamento.external_reference);// id que a aplicação gerou para o pagamento.
+                console.log(pagamento.status);//approved - concluido com sucesso.
+                if (status == 'approved'){
+                    //atualiza no banco se o pagamento esta feito.
+                }
             }else{
                 console.log('Pagamento não existe');
             }
