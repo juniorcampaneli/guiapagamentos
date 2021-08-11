@@ -64,6 +64,13 @@ app.post('/not', (req, res)=>{
             qs: filtro
         }).then(data=>{
             console.log(data);
+            //o retorno eh um array
+            var pagamento = data.body.results[0];
+            if (pagamento != undefined){
+                console.log(pagamento);
+            }else{
+                console.log('Pagamento não existe');
+            }
         }).catch(error =>{
             console.log(error);
         })
