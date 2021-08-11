@@ -53,6 +53,21 @@ app.get('/pagar', async (req, res)=>{
 
 app.post('/not', (req, res)=>{
     console.log(req.query);
+    var id=  req.query.id;
+    //Executar função e um determinado periodo de tempo.
+    setTimeout(()=>{
+        var filtro ={//documentação do mercado pago: busca de pagamento.
+            "order.id": id
+        }
+        //eEssa função serve para buscar no mercado livre se o pagamento foi executado.
+        MercadoPago.payment.search({
+            qs: filtro
+        }).then(data=>{
+            console.log(data);
+        }).catch(error =>{
+            console.log(error);
+        })
+    },20000);
     res.send("OK"); // vc precisa enviar uma reposta para o mercado pago.
 })
 
